@@ -7,7 +7,7 @@
 	<!-- Load the URDF into the ROS Parameter Server -->
 	<!-- Here we namespace the parameter to be under "Kwad" -->
 	<param name="/Kwad/robot_description"
-		command="$(find xacro)/xacro --inorder '$(find ekf_simulator)/urdf/Kwad.xacro'" />
+		command="$(find xacro)/xacro --inorder '$(find robotuna_ekf_simulator)/urdf/Kwad.xacro'" />
 
 	<!-- gazebo_ros options -->
 	<arg name="paused" default="true"/>
@@ -18,7 +18,7 @@
 
 	<!-- Launch gazebo_ros -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-	<arg name="world_name" value="$(find ekf_simulator)/worlds/Kwad.world"/>
+	<arg name="world_name" value="$(find robotuna_ekf_simulator)/worlds/Kwad.world"/>
 	<arg name="debug" value="$(arg debug)" />
 	<arg name="gui" value="$(arg gui)" />
 	<arg name="paused" value="$(arg paused)"/>

@@ -8,14 +8,14 @@ A set of tools for Gazebo simulation and control of a quadcopter.
 
 ## Usage
 To start the simulation:\
-`$ roslaunch ekf_simulator Kwad_sim.launch`
+`$ roslaunch robotuna_ekf_simulator Kwad_sim.launch`
 
 To launch the JointGroupVelocityController:\
-`$ roslaunch ekf_simulator Kwad_control.launch`
+`$ roslaunch robotuna_ekf_simulator Kwad_control.launch`
 
 To run the basic attitude controller:\
 `$ chmod +x scripts/control.py # Only needs to be done once`\
-`$ rosrun ekf_simulator control.py`
+`$ rosrun robotuna_ekf_simulator control.py`
 
 ## TODO
 **Model**

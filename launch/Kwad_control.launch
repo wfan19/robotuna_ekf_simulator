@@ -8,7 +8,7 @@
 
 	<!-- Load joint controller type and configuration from 
          YAML config file to parameter server -->
-	<rosparam file="$(find ekf_simulator)/config/Kwad_control.yaml" />
+	<rosparam file="$(find robotuna_ekf_simulator)/config/Kwad_control.yaml" />
 
     <!-- Launch the joint_state_publisher to publish joint states
          so that robot_state_publisher can publish the appropriate tf's -->
@@ -51,5 +51,5 @@
     />
 
     <!-- Launch Rviz for visualization -->
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find ekf_simulator)/rviz.rviz" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotuna_ekf_simulator)/rviz.rviz" />
 </launch>

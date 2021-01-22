@@ -1,6 +1,6 @@
 <launch>
 	<arg name="model" default="Kwad.xacro"/>
-	<param name="robot_description" command="$(find xacro)xacro '$(find ekf_simulator)/urdf/$(arg model)'" />
+	<param name="robot_description" command="$(find xacro)xacro '$(find robotuna_ekf_simulator)/urdf/$(arg model)'" />
 	
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
 		<param name="use_gui" value="TRUE" />
@@ -8,6 +8,6 @@
 	
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 	
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find ekf_simulator)/rviz.rviz" required="true" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotuna_ekf_simulator)/rviz.rviz" required="true" />
 	
 </launch>
