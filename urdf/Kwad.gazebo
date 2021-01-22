@@ -3,11 +3,11 @@
 
 	<!-- ================================= -->
 	<!-- Define Gazebo tags for every link -->
-	<gazebo reference="base_link1">
+	<gazebo reference="arm_1">
 		<material>Gazebo/Red</material>
 	</gazebo>
 	
-	<gazebo reference="base_link2">
+	<gazebo reference="arm_2">
 		<material>Gazebo/White</material>
 	</gazebo>
 	
@@ -217,7 +217,7 @@
 		<rightRearJoint>br_joint</rightRearJoint>
 		<wheelSeparation>0.4</wheelSeparation>
 		<wheelDiameter>0.215</wheelDiameter>
-		<robotBaseFrame>base_link1</robotBaseFrame>
+		<robotBaseFrame>arm_1</robotBaseFrame>
 		<torque>20</torque>
 		<topicName>cmd_vel</topicName>
 		<broadcastTF>false</broadcastTF>
