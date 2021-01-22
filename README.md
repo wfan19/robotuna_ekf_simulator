@@ -10,7 +10,7 @@ A set of tools for Gazebo simulation and control of a quadcopter.
 To start the simulation:\
 `$ roslaunch robotuna_ekf_simulator Kwad_sim.launch`
 
-To launch the JointGroupVelocityController:\
+To launch Rviz and propeller velocity control:\
 `$ roslaunch robotuna_ekf_simulator Kwad_control.launch`
 
 To run the basic attitude controller:\
