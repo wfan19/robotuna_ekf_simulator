@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>robotuna_robotuna_ekf_simulator</name>
+  <name>robotuna_ekf_simulator</name>
   <version>0.0.0</version>
   <description>A Gazebo simulator for unit testing the RoboTuna visual-inertial EKF</description>
 
