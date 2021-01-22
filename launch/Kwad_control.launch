@@ -1,0 +1,55 @@
+<launch>
+	<!-- =================================== -->
+	<!-- Load joint state managers, publishers, and ros_control controllers -->
+    <!-- Should be used after simulation has started -->
+	<!-- =================================== -->
+
+    <arg name="group_props" default="true" />
+
+	<!-- Load joint controller type and configuration from 
+         YAML config file to parameter server -->
+	<rosparam file="$(find ekf_simulator)/config/Kwad_control.yaml" />
+
+    <!-- Launch the joint_state_publisher to publish joint states
+         so that robot_state_publisher can publish the appropriate tf's -->
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"
+        ns="Kwad"
+	>
+		<param name="rate" value="50" />
+	</node>
+
+    <!-- Launch the robot_state_publisher node to publish robot state to tf -->
+	<node name="robot_state_pulisher" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false"
+        output="screen"
+        ns="Kwad"
+	/>
+
+	<!-- Load the controllers defined in the config YAML file -->
+
+    <!-- (Default) Load the JointGroupVelocityController to control props for script control-->
+    <node if="$(arg group_props)"
+        name="controller_spawner" pkg="controller_manager" type="spawner" 
+        respawn="false"
+        output="screen"
+        ns="/Kwad"
+        args="joint_state_controller
+                group_props_controller"
+    />
+
+    <!-- (Backup) Load individual JointVelocityControllers for debugging from RQT and such-->
+	<node unless="$(arg group_props)"
+        name="controller_spawner" pkg="controller_manager" type="spawner" 
+        respawn="false"
+        output="screen"
+        ns="/Kwad"
+        args="joint_state_controller
+                fr_prop_controller
+                fl_prop_controller
+                br_prop_controller
+                bl_prop_controller"
+    />
+
+    <!-- Launch Rviz for visualization -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find ekf_simulator)/rviz.rviz" />
+</launch>

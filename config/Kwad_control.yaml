@@ -1,0 +1,44 @@
+Kwad:
+
+    # Joint state publisher
+    joint_state_controller:
+        type: joint_state_controller/JointStateController
+        publish_rate: 50
+        
+    # ==============================================================
+    # (Default) Joint Group Velocity Controller
+    group_props_controller:
+        type: velocity_controllers/JointGroupVelocityController
+        joints: 
+            - joint_front_right_prop
+            - joint_front_left_prop
+            - joint_back_left_prop
+            - joint_back_right_prop
+        gains:
+            joint_front_right_prop: {p: 10000, i: 1, d: 1000}
+            joint_front_left_prop: {p: 10000, i: 1, d: 1000}
+            joint_back_left_prop: {p: 10000, i: 1, d: 1000}
+            joint_back_right_prop: {p: 10000, i: 1, d: 1000}
+
+    # ==============================================================
+    # (Backup) Individual Joint Velocity Controllers for each propeller
+    fr_prop_controller:
+        type: velocity_controllers/JointVelocityController
+        joint: joint_front_right_prop
+        pid: {p: 10000, i: 1, d: 1000}
+
+    fl_prop_controller:
+        type: velocity_controllers/JointVelocityController
+        joint: joint_front_left_prop
+        pid: {p: 10000, i: 1, d: 1000}
+
+    br_prop_controller:
+        type: velocity_controllers/JointVelocityController
+        joint: joint_back_right_prop
+        pid: {p: 10000, i: 1, d: 1000}
+
+    bl_prop_controller:
+        type: velocity_controllers/JointVelocityController
+        joint: joint_back_left_prop
+        pid: {p: 10000, i: 1, d: 1000}
+    
