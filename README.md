@@ -1,5 +1,5 @@
 # RoboTuna EKF Simulator
-A set of tools for Gazebo simulation and control of a quadcopter.
+A set of tools for Gazebo simulation and control of a quadcopter. Designed for unit testing a fast visual-inertial EKF for RoboTuna localization.
 
 ## Current features
 - Spawns quadcopter with the following sensors:
@@ -20,6 +20,8 @@ To run the basic attitude controller:\
 ## TODO
 **Model**
 - Modify drone model to un-obstruct camera view
+    - Ideally: Add feet to the drone and move camera below
+- Add IMU
 
 **Control**
 - PID attitude controller
