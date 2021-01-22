@@ -1,0 +1,41 @@
+<launch>
+
+	<!-- =================================== -->
+	<!-- Launch Gazebo simulation with Kwad model spawned -->
+	<!-- =================================== -->
+
+	<!-- Load the URDF into the ROS Parameter Server -->
+	<!-- Here we namespace the parameter to be under "Kwad" -->
+	<param name="/Kwad/robot_description"
+		command="$(find xacro)/xacro --inorder '$(find ekf_simulator)/urdf/Kwad.xacro'" />
+
+	<!-- gazebo_ros options -->
+	<arg name="paused" default="true"/>
+	<arg name="use_sim_time" default="true"/>
+	<arg name="gui" default="true"/>
+	<arg name="headless" default="false"/>
+	<arg name="debug" default="false"/>
+
+	<!-- Launch gazebo_ros -->
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+	<arg name="world_name" value="$(find ekf_simulator)/worlds/Kwad.world"/>
+	<arg name="debug" value="$(arg debug)" />
+	<arg name="gui" value="$(arg gui)" />
+	<arg name="paused" value="$(arg paused)"/>
+	<arg name="use_sim_time" value="$(arg use_sim_time)"/>
+	<arg name="headless" value="$(arg headless)"/>
+	</include>
+
+	<!-- Spawn the model within Gazebo -->
+	<!-- Note that it is namesapced (ns) to be under "Kwad, so 
+		 the -param tag makes it search under /Kwad/robot_description actually -->
+	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+		ns="Kwad"
+		respawn="false"
+		output="screen"
+		args="-urdf -model Kwad -param /Kwad/robot_description"
+	/>
+
+</launch>
+
+
