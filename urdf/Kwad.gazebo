@@ -42,6 +42,19 @@
     </gazebo>
 	
 	<!-- TODO: Add IMU plugin -->
+	<gazebo>
+		<plugin name="imu_plugin" filename="libhector_gazebo_ros_imu.so">
+			<updateRate>10.0</updateRate>
+			<bodyName>base_link</bodyName>
+			<frameId>imu_link</frameId>
+			<topicName>imu</topicName>
+			<accelDrift>0 0 0</accelDrift>
+			<accelGaussianNoise>0 0 0</accelGaussianNoise>
+			<rateDrift>0 0 0</rateDrift>
+			<rateGaussianNoise>0 0 0</rateGaussianNoise>
+		</plugin>
+	</gazebo>
+
 	<!-- TODO: Add ground truth plugin -->
 	
 	<!-- ================================= -->
