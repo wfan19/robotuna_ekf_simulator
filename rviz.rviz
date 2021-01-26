@@ -54,7 +54,7 @@ Visualization Manager:
         Y: 0
         Z: 0
       Plane: XY
-      Plane Cell Count: 10
+      Plane Cell Count: 100
       Reference Frame: <Fixed Frame>
       Value: true
     - Alpha: 1
@@ -67,7 +67,12 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        arduino:
+        arm_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -76,47 +81,37 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        base_link1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base_link2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         camera_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        cyl1:
+        cyl_bl:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        cyl2:
+        cyl_br:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        cyl3:
+        cyl_fl:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        cyl4:
+        cyl_fr:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        imu_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
         plate1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        plate2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -163,7 +158,7 @@ Visualization Manager:
       Value: false
     - Class: rviz/Image
       Enabled: true
-      Image Topic: /Kwad/Kwad/camera1/image_raw
+      Image Topic: /Kwad/camera1/image_raw
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -216,10 +211,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4203985035419464
+      Pitch: 0.42539849877357483
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.8285772800445557
+      Yaw: 3.9235785007476807
     Saved: ~
 Window Geometry:
   Displays:
@@ -239,5 +234,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1920
-  X: 0
-  Y: 0
+  X: 33
+  Y: 58
