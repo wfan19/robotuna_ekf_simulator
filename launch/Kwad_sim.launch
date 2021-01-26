@@ -7,7 +7,10 @@
 	<!-- Load the URDF into the ROS Parameter Server -->
 	<!-- Here we namespace the parameter to be under "Kwad" -->
 	<param name="/Kwad/robot_description"
-		command="$(find xacro)/xacro --inorder '$(find robotuna_ekf_simulator)/urdf/Kwad.xacro'" />
+		command="$(find xacro)/xacro '$(find robotuna_ekf_simulator)/urdf/Kwad.xacro'" />
+
+	<param name="/Kwad_frame/robot_description"
+		command="$(find xacro)/xacro '$(find robotuna_ekf_simulator)/urdf/Kwad_frame.xacro'" />
 
 	<!-- gazebo_ros options -->
 	<arg name="paused" default="true"/>
@@ -35,6 +38,15 @@
 		output="screen"
 		args="-urdf -model Kwad -param /Kwad/robot_description"
 	/>
+
+	<!-- UNUSED -->
+	<!-- Spawns dummy model without Gazebo plugins or propellers -->
+	<!-- <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+		ns="Kwad_frame"
+		respawn="false"
+		output="screen"
+		args="-urdf -model Kwad_frame -param /Kwad_frame/robot_description"
+	/> -->
 
 </launch>
 

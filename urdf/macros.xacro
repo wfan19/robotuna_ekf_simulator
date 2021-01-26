@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Fill-in-the-blank inertia diagonal matrix -->
+	<xacro:macro name="default_inertia" params="mass ix iy iz" >
+    <inertia  ixx="${ix}" ixy = "0" ixz = "0"
+              iyy="${iy}" iyz = "0"
+              izz="${iz}"
+    />
+	</xacro:macro> 
+
+
+  <xacro:macro name="cylinder_inertia" params="mass r h">
+    <inertia  ixx="${mass*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+              iyy="${mass*(3*r*r+h*h)/12}" iyz = "0"
+              izz="${mass*r*r/2}"
+    />
+  </xacro:macro>
+
+  <xacro:macro name="box_inertia" params="mass x y z">
+    <inertia  ixx="${mass*(y*y+z*z)/12}" ixy = "0" ixz = "0"
+              iyy="${mass*(x*x+z*z)/12}" iyz = "0"
+              izz="${mass*(x*x+y*y)/12}"
+    />
+  </xacro:macro>
+
+  <xacro:macro name="sphere_inertia" params="mass r">
+    <inertia  ixx="${2*mass*r*r/5}" ixy = "0" ixz = "0"
+              iyy="${2*mass*r*r/5}" iyz = "0"
+              izz="${2*mass*r*r/5}"
+    />
+  </xacro:macro>
+
+  <xacro:macro name="boxLink" params="name mass x_dim y_dim z_dim r:=0 p:=0 y:=0 color:=grey">
+    <link name="${name}">
+      <inertial>
+        <origin xyz="0 0 0" rpy="${r} ${p} ${y}"/>
+        <mass value="${mass}"/>
+        <xacro:box_inertia mass="${mass}" x="${x_dim}" y="${y_dim}" z="${z_dim}"/>
+      </inertial>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="${r} ${p} ${y}" />
+        <geometry>
+          <box size="${x_dim} ${y_dim} ${z_dim}" />
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="${r} ${p} ${y}"/>
+        <geometry>
+          <box size="${x_dim} ${y_dim} ${z_dim}"/>
+        </geometry>
+        <material name="${color}"/>
+      </visual>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="boxLink_customInertia" 
+    params="name mass 
+            x_dim y_dim z_dim
+            ix iy iz
+            r:=0 p:=0 y:=0 
+            color:=grey"
+  >
+    <link name="${name}">
+      <inertial>
+        <origin xyz="0 0 0" rpy="${r} ${p} ${y}"/>
+        <mass value="${mass}"/>
+        <xacro:default_inertia mass="${mass}" ix="${ix}" iy="${iy}" iz="${iz}"/>
+      </inertial>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="${r} ${p} ${y}" />
+        <geometry>
+          <box size="${x_dim} ${y_dim} ${z_dim}" />
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="${r} ${p} ${y}"/>
+        <geometry>
+          <box size="${x_dim} ${y_dim} ${z_dim}"/>
+        </geometry>
+        <material name="${color}"/>
+      </visual>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="cylinderLink" params="name mass radius height r:=0 p:=0 y:=0 color:=grey">
+    <link name="${name}">
+      <inertial>
+        <origin xyz="0 0 0" rpy="${r} ${p} ${y}"/>
+        <mass value="${mass}"/>
+        <xacro:cylinder_inertia mass="${mass}" r="${radius}" h="${height}"/>
+      </inertial>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="${r} ${p} ${y}"/>
+        <geometry>
+          <cylinder radius="${radius}" length="${height}"/>
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="${r} ${p} ${y}"/>
+        <geometry>
+          <cylinder radius="${radius}" length="${height}"/>
+        </geometry>
+        <material name="${color}"/>
+      </visual>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="sphereLink" params="name mass r color:=grey">
+    <link name="${name}">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="${mass}" />
+        <xacro:sphere_inertia mass="${mass}" r="${r}" />
+      </inertial>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <sphere radius="${r}" />
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <sphere radius="${r}"/>
+        </geometry>
+        <material name="${color}"/>
+      </visual>
+    </link>
+  </xacro:macro>
+</robot>
