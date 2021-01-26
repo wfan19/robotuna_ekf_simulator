@@ -1,14 +1,24 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="Kwad">
 <!-- ======================================================== -->
-	<xacro:property name="width" value="0.0315" />
+
+	<!-- Constants -->
+	<xacro:property name="pi_value" value="3.14159263" />
+
+	<!-- Dimensions for cross beam arms -->
+	<xacro:property name="width" value="0.0315" /> 
 	<xacro:property name="length" value="0.45" />
 	<xacro:property name="height" value="0.01" />
+	<!-- Mass of cross beam arms -->
 	<xacro:property name="mass_fr" value="0.5" />
-	<xacro:property name="mass_pr" value="0.0055" />
-	<xacro:property name="pi_value" value="3.14159263" />
+
+	<!-- Dimension of propellors -->
 	<xacro:property name="radiusp" value="0.20" />
+	<!-- Mass of propellors -->
+	<xacro:property name="mass_pr" value="0.0055" />
+	<!-- Location of propellors -->
 	<xacro:property name="prop_loc" value="0.15909" />
+
 <!-- ======================================================== -->	
 	<xacro:include filename="$(find robotuna_ekf_simulator)/urdf/material.xacro" />
 	<xacro:include filename="$(find robotuna_ekf_simulator)/urdf/Kwad.gazebo" />
@@ -23,6 +33,10 @@
 		</inertial>
 	</xacro:macro> 
 
+<!-- ======================================================== -->
+	<!-- Base link -->
+	<link name="base_link"/>
+	
 <!-- ======================================================== -->	
 	<link name="arm_1">
 		<visual>
@@ -68,10 +82,6 @@
 		
 		<xacro:default_inertial mass="${mass_fr}" p="${-pi_value/4}" ix_value="${0.04989/2}" iy_value="${0.04989/2}" iz_value="${0.24057/2}" />
 	</link>
-<!-- ======================================================== -->
-	
-	<link name="base_link"/>
-	
 <!-- ======================================================== -->	
 	<link name="plate1">
 		<visual>
@@ -95,7 +105,7 @@
 		<xacro:default_inertial mass="${0.01}" p="${0}" ix_value="${0}" iy_value="${0}" iz_value="${2.4-5}" />
 	</link>
 <!-- ======================================================== -->
-	<link name="cyl1">
+	<link name="cyl_fr">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			
@@ -117,7 +127,7 @@
 		<xacro:default_inertial mass="${0.01}" p="${0}" ix_value="${8.95e-6}" iy_value="${8.95e-6}" iz_value="${2.23e-4}" />
 	</link>
 <!-- ======================================================== -->
-	<link name="cyl2">
+	<link name="cyl_bl">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			
@@ -139,7 +149,7 @@
 		<xacro:default_inertial mass="${0.01}" p="${0}" ix_value="${8.95e-6}" iy_value="${8.95e-6}" iz_value="${2.23e-4}" />
 	</link>
 <!-- ======================================================== -->
-	<link name="cyl3">
+	<link name="cyl_fl">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			
@@ -161,7 +171,7 @@
 		<xacro:default_inertial mass="${0.01}" p="${0}" ix_value="${8.95e-6}" iy_value="${8.95e-6}" iz_value="${2.23e-4}" />
 	</link>
 <!-- ======================================================== -->
-	<link name="cyl4">
+	<link name="cyl_br">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			
@@ -372,34 +382,34 @@
 		<axis xyz="0 0 1" />
 	</joint>
 <!-- ======================================================== -->
-<!-- Define joint between cyl1 and frame -->
-	<joint name="joint_cyl1_frame" type="fixed">
+<!-- Define joint between cyl_fr and frame -->
+	<joint name="joint_cyl_fr_frame" type="fixed">
 		<parent link="arm_2" />
-		<child link="cyl1" />
+		<child link="cyl_fr" />
 		<origin xyz="${prop_loc - 0.01} ${prop_loc - 0.01} 0.01" rpy="0 0 0" />
 		<axis xyz="0 0 1" />
 	</joint>
 <!-- ======================================================== -->
-<!-- Define joint between cyl2 and frame -->
-	<joint name="joint_cyl2_frame" type="fixed">
+<!-- Define joint between cyl_bl and frame -->
+	<joint name="joint_cyl_bl_frame" type="fixed">
 		<parent link="arm_2" />
-		<child link="cyl2" />
+		<child link="cyl_bl" />
 		<origin xyz="${-prop_loc + 0.01} ${-prop_loc + 0.01} 0.01" rpy="0 0 0" />
 		<axis xyz="0 0 1" />
 	</joint>
 <!-- ======================================================== -->
-<!-- Define joint between cyl3 and frame -->
-	<joint name="joint_cyl3_frame" type="fixed">
+<!-- Define joint between cyl_fl and frame -->
+	<joint name="joint_cyl_fl_frame" type="fixed">
 		<parent link="arm_1" />
-		<child link="cyl3" />
+		<child link="cyl_fl" />
 		<origin xyz="${-prop_loc + 0.01} ${prop_loc - 0.01} 0.01" rpy="0 0 0" />
 		<axis xyz="0 0 1" />
 	</joint>
 <!-- ======================================================== -->
-<!-- Define joint between cyl4 and frame -->
-	<joint name="joint_cyl4_frame" type="fixed">
+<!-- Define joint between cyl_br and frame -->
+	<joint name="joint_cyl_br_frame" type="fixed">
 		<parent link="arm_1" />
-		<child link="cyl4" />
+		<child link="cyl_br" />
 		<origin xyz="${prop_loc - 0.01} ${-prop_loc + 0.01} 0.01" rpy="0 0 0" />
 		<axis xyz="0 0 1" />
 	</joint>

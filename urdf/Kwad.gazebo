@@ -15,23 +15,19 @@
 		<material>Gazebo/Black</material>
 	</gazebo>
 	
-	<gazebo reference="plate2">
-		<material>Gazebo/Blue</material>
-	</gazebo>
-	
-	<gazebo reference="cyl1">
+	<gazebo reference="cyl_fr">
 		<material>Gazebo/Gold</material>
 	</gazebo>
 	
-	<gazebo reference="cyl2">
+	<gazebo reference="cyl_bl">
 		<material>Gazebo/Gold</material>
 	</gazebo>
 	
-	<gazebo reference="cyl3">
+	<gazebo reference="cyl_fl">
 		<material>Gazebo/Gold</material>
 	</gazebo>
 	
-	<gazebo reference="cyl4">
+	<gazebo reference="cyl_br">
 		<material>Gazebo/Gold</material>
 	</gazebo>
 	
