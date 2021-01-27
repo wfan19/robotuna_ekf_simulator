@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(robotuna_robotuna_ekf_simulator)
+project(robotuna_ekf_simulator)
 
 find_package(catkin REQUIRED COMPONENTS
   gazebo_ros
