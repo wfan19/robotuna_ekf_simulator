@@ -48,6 +48,13 @@
 		args="-urdf -model Kwad_frame -param /Kwad_frame/robot_description"
 	/> -->
 
+	<node name="odom_to_tf" pkg="robotuna_ekf_simulator" type="odom_to_tf.py"
+		ns="Kwad"
+		args="odom_to_tf"
+	>
+		<param name="odom_topic" value="/Kwad/odometry/ground_truth/map" />
+	</node>
+
 </launch>
 
 
