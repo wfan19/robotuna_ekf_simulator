@@ -4,6 +4,8 @@ A set of tools for Gazebo simulation and control of a quadcopter. Designed for u
 ## Current features
 - Spawns quadcopter with the following sensors:
     - Camera
+    - IMU
+    - Ground truth (Publishes to both odom topic and tf)
 - Basic attitude stabilization
 
 ## Usage
@@ -18,15 +20,13 @@ To run the basic attitude controller:\
 `$ rosrun robotuna_ekf_simulator control.py`
 
 ## TODO
-**Model**
-- Modify drone model to un-obstruct camera view
-    - Ideally: Add feet to the drone and move camera below
-- Add IMU
-
 **Control**
-- PID attitude controller
-- Cascading PID velocity controller (Reach goal?)
-- LQR velocity/position controller? (Very very reach goal? See Drake for example impl)
+- DIY PID attitude controller
+- Cascading PID velocity/position controller (Reach goal?)
+- LQR velocity/position controller? (Very very reach goal? See [this paper](<ttps://www.kth.se/polopoly_fs/1.588039.1600688317!/Thesis KTH - Francesco Sabatino.pdf>) for state space model)
+
+**World**
+- Add Apriltags to world
 
 ## Acknowledgements
-Quadcopter model and basic attitude control: [NisanthARao/ROS-Quadcopter-Simulation](https://github.com/NishanthARao/ROS-Quadcopter-Simulation)
+Quadcopter model and basic attitude control: A heavily modified version of [NisanthARao/ROS-Quadcopter-Simulation](https://github.com/NishanthARao/ROS-Quadcopter-Simulation)
