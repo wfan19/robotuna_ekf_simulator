@@ -42,6 +42,28 @@
     </gazebo>
 	
 	<!-- TODO: Add IMU plugin -->
+	<gazebo>
+		<plugin name="imu_plugin" filename="libhector_gazebo_ros_imu.so">
+			<updateRate>10.0</updateRate>
+			<bodyName>base_link</bodyName>
+			<frameId>imu_link</frameId>
+			<topicName>imu</topicName>
+			<accelDrift>0 0 0</accelDrift>
+			<accelGaussianNoise>0 0 0</accelGaussianNoise>
+			<rateDrift>0 0 0</rateDrift>
+			<rateGaussianNoise>0 0 0</rateGaussianNoise>
+		</plugin>
+
+		<plugin name="base_link_p3d_plugin" filename="libgazebo_ros_p3d.so">
+			<alwaysOn>true</alwaysOn>
+			<updateRate>10.0</updateRate>
+			<bodyName>base_link</bodyName>
+			<topicName>odometry/ground_truth/map</topicName>
+			<frameName>map</frameName>
+			<gaussianNoise>0.0</gaussianNoise>
+		</plugin>
+	</gazebo>
+
 	<!-- TODO: Add ground truth plugin -->
 	
 	<!-- ================================= -->
