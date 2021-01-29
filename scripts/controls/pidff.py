@@ -48,3 +48,8 @@ class PIDFF:
         
         return control_val
     
+    def reset(self, time):
+        self.last_time = time
+        self.last_error = 0
+        self.i_term = 0
+    
