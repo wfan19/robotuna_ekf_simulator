@@ -30,12 +30,12 @@ class PIDFF:
         dt = time - self.last_time
 
         # Calculate p, d, and ff terms
-        p_term = self.gains.kP * error
-        d_term = self.gains.kD * (error - self.last_error) / dt
-        ff_term = self.gains.kFF * reference
+        p_term = np.dot(self.gains.kP, error)
+        d_term = np.dot(self.gains.kD, (error - self.last_error)) / dt
+        ff_term = np.dot(self.gains.kFF, reference)
 
         # Calculate and clamp i term
-        self.i_term = self.i_term + (self.gains.kI * error) * dt
+        self.i_term = self.i_term + np.dot(self.gains.kI, error) * dt
 
         self.i_term = np.clip(self.i_term, self.gains.i_min, self.gains.i_max)
 
