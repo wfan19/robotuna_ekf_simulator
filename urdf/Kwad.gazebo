@@ -40,8 +40,7 @@
 			</plugin>
 		</sensor>
     </gazebo>
-	
-	<!-- TODO: Add IMU plugin -->
+
 	<gazebo>
 		<plugin name="imu_plugin" filename="libhector_gazebo_ros_imu.so">
 			<updateRate>10.0</updateRate>
@@ -63,8 +62,6 @@
 			<gaussianNoise>0.0</gaussianNoise>
 		</plugin>
 	</gazebo>
-
-	<!-- TODO: Add ground truth plugin -->
 	
 	<!-- ================================= -->
 	<!-- LiftDrag: Define lift from propellers -->
