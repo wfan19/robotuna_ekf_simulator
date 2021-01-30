@@ -4,19 +4,24 @@ from pidff import *
 
 class TestPIDFF(unittest.TestCase):
     def test_scalar(self):
+        
+        print("\n========= Testing for scalar values =========")
+
         t0 = 10000
         t_current = 10100
         ref = 1
         meas = 0.5
 
-        gains = PIDFFGains(kP = 100, kI = 1, kD = 10, kFF = 5, i_min = -10, i_max = 10)
-        pidff = PIDFF(gains, t0)
+        params = PIDFFParams(kP = 100, kI = 1, kD = 10, kFF = 5, i_min = -10, i_max = 10)
+        pidff = PIDFF(params, t0)
 
         control_val = pidff.update(t_current, ref, meas)
         self.assertEqual(control_val, 65.05)
 
     def test_np_array(self):
         import numpy as np
+        
+        print("\n======== Testing for NP arrays =========")
 
         t0 = 10000
         t_current = 10100
@@ -24,9 +29,9 @@ class TestPIDFF(unittest.TestCase):
         v_ref = np.array([1, 0, -1]).T
         v_meas = np.array([0.5, 0, 100]).T
 
-        gains = PIDFFGains(kP = 100, kI = 1, kD = 10, kFF = 5, i_min = -10, i_max = 10)
-        pidff = PIDFF(gains, t0)
-        v_pidff = PIDFF(gains, t0)
+        params = PIDFFParams(kP = 100, kI = 1, kD = 10, kFF = 5, i_min = -10, i_max = 10)
+        pidff = PIDFF(params, t0)
+        v_pidff = PIDFF(params, t0)
 
         v_control_val = v_pidff.update(t_current, v_ref, v_meas)
 
@@ -47,15 +52,18 @@ class TestPIDFF(unittest.TestCase):
 
         # TODO: A test for multiple controller updates over time? That way we can test for the I and D terms
 
-    def test_mat_gains(self):
+    def test_mat_params(self):
         import numpy as np
+
+        print("\n========= Testing for matrix gains =========")
+
         t0 = 10000
         t_current = 10100
 
         v_ref = np.array([[1, 0, -1]]).T
         v_meas = np.array([[0.5, 3, 100]]).T
 
-        # Vectors of gains
+        # Vectors of params
         v_kP = [100, 200, 300]
         v_kI = [1, 2, 3]
         v_kD = [10, 20, 30]
@@ -64,16 +72,16 @@ class TestPIDFF(unittest.TestCase):
         i_max = 10
 
         # Matrix gain
-        mat_gains = PIDFFGains(kP = np.diag(v_kP), kI = np.diag(v_kI), kD = np.diag(v_kD), kFF = np.diag(v_kFF), i_min = i_min, i_max = i_max)
-        mat_pidff = PIDFF(mat_gains, t0)
+        mat_params = PIDFFParams(kP = np.diag(v_kP), kI = np.diag(v_kI), kD = np.diag(v_kD), kFF = np.diag(v_kFF), i_min = i_min, i_max = i_max)
+        mat_pidff = PIDFF(mat_params, t0)
 
         control_vals_mat_pidff = mat_pidff.update(t_current, v_ref, v_meas)
 
         control_vals_scalar_pidffs = []
         for i in range(3):
             # Generate controller for given index
-            gains_i = PIDFFGains(kP=v_kP[i], kI=v_kI[i], kD=v_kD[i], kFF=v_kFF[i], i_min=i_min, i_max=i_max)
-            pidff_i = PIDFF(gains_i, t0)
+            params_i = PIDFFParams(kP=v_kP[i], kI=v_kI[i], kD=v_kD[i], kFF=v_kFF[i], i_min=i_min, i_max=i_max)
+            pidff_i = PIDFF(params_i, t0)
 
             # Control
             control_val_i = pidff_i.update(t_current, v_ref[i], v_meas[i])
