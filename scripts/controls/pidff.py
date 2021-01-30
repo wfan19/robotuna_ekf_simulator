@@ -31,7 +31,10 @@ class PIDFF:
 
         # Calculate p, d, and ff terms
         p_term = np.dot(self.params.kP, error)
-        d_term = np.dot(self.params.kD, (error - self.last_error)) / dt
+        if dt != 0:
+            d_term = np.dot(self.params.kD, (error - self.last_error)) / dt
+        else:
+            d_term = 0
         ff_term = np.dot(self.params.kFF, reference)
 
         # Calculate and clamp i term

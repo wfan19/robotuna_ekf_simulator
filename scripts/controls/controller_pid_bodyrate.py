@@ -2,6 +2,7 @@
 
 from pidff import *
 from controller_base import Controller
+from utils import *
 
 import numpy as np
 from scipy.spatial.transform import Rotation
@@ -22,10 +23,12 @@ class ControllerPIDBodyrate(Controller):
         # Configures how the linear combination of desired body rates + thrust determine the propeller speeds
         # Possible TODO: Figure out a way to pass the matrix in from rosparam without using rospy within here?
         self.mixing_matrix = np.array([
-            [-0.71, 0.71, -1, 1],    # Front right
-            [0.71, 0.71, 1, 1],    # Front left
-            [0.71, -0.71, -1, 1],    # Back left
-            [-0.71, -0.71, 1, 1]   # Back right
+            # Columns: 
+            # roll, pitch, yaw, thrust
+            [-0.71, -0.71, -1, 1],    # Front right
+            [0.71, -0.71, 1, 1],    # Front left
+            [0.71, 0.71, -1, 1],    # Back left
+            [-0.71, 0.71, 1, 1]   # Back right
         ])
 
         # Sign matrix
@@ -60,6 +63,7 @@ class ControllerPIDBodyrate(Controller):
         # Control body rate with PID
         v_angular_accel_sp = self.controller_body_rate.update(time, v_sp_vel_ang, v_cur_vel_ang)
 
+        # v_inputs: vector of [roll_accel; pitch_accel; yaw_accel; thrust_cmd]
         v_inputs = np.concatenate((v_angular_accel_sp, [[thrust_cmd]]), 0)
 
         # Mixing

@@ -35,7 +35,8 @@ class TestPIDBodyrate(unittest.TestCase):
         mean_front = np.mean(v_control_vals[0:2])
         mean_back = np.mean(v_control_vals[2:4])
 
-        self.assertTrue(mean_front > mean_back)
+        # Y axis from the left = positive pitch is nose-down
+        self.assertTrue(mean_back > mean_front)
 
     def test_bodyrate_roll_only(self):
         # Testing body rate control of roll at constant throttle
@@ -49,6 +50,7 @@ class TestPIDBodyrate(unittest.TestCase):
         mean_left = np.mean(v_control_vals[1:3])
         mean_right = np.mean([v_control_vals[0], v_control_vals[3]])
 
+        # X axis from the front = positive roll is left-up
         self.assertTrue(mean_left > mean_right)
 
     def test_bodyrate_yaw_only(self):
@@ -63,6 +65,7 @@ class TestPIDBodyrate(unittest.TestCase):
         mean_fl_br = np.mean([v_control_vals[1], v_control_vals[3]])
         mean_fr_bl = np.mean([v_control_vals[0], v_control_vals[2]])
 
+        # Z axis from the top = positive yaw is nose left
         self.assertTrue(mean_fl_br > mean_fr_bl)
 
 if __name__ == '__main__':

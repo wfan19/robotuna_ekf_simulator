@@ -7,5 +7,5 @@ class Controller:
         pass
 
     # TODO: Change ref pose to ref odom
-    def control(time, reference_odom: Odometry, current_state: Odometry, v_ref: np.array=None, v_cur: np.array=None, thrust_cmd: float = None):
+    def control(time, thrust_cmd: float = None, reference_odom: Odometry=None, current_state: Odometry=None, v_ref: np.array=None, v_cur: np.array=None):
         pass

@@ -92,6 +92,22 @@ class TestPIDFF(unittest.TestCase):
         # Check that the vector version is the same as the scalar version
         np.testing.assert_allclose(control_vals_mat_pidff, control_vals_scalar_pidffs)
 
+    def test_scalar_updates(self):
+        print("\n========= Testing for scalar values =========")
+
+        t_0 = 10000
+        t_1 = 10100
+        t_2 = 10150
+        ref = 1
+        meas_1 = 0.5
+        meas_2 = 0.6
+
+        params = PIDFFParams(kP = 100, kI = 1, kD = 10, kFF = 5, i_min = -10, i_max = 10)
+        pidff = PIDFF(params, t_0)
+
+        control_val = pidff.update(t_1, ref, meas_1)
+        control_val_2 = pidff.update(t_2, ref, meas_2)
+
 
 if __name__ == '__main__':
     unittest.main()
