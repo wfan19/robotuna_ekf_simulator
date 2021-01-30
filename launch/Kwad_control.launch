@@ -51,5 +51,5 @@
     />
 
     <!-- Launch Rviz for visualization -->
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotuna_ekf_simulator)/rviz.rviz" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotuna_ekf_simulator)/simulation.rviz" />
 </launch>
