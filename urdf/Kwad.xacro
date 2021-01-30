@@ -173,40 +173,8 @@
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<axis xyz="0 0 1" />
 	</joint>
-<!-- ======================================================== -->
-	<!-- Define joint between prop fr and frame -->
-	<joint name="joint_front_right_prop" type="continuous">
-		<parent link="arm_2" />
-		<child link="prop_front_right" />
-		<origin xyz="${prop_loc - 0.01} ${prop_loc - 0.01} 0.021" rpy="0 0 0"/>
-		<axis xyz="0 0 1" />
-	</joint>
-<!-- ======================================================== -->
-	<!-- Define joint between prop fl and frame -->
-	<joint name="joint_front_left_prop" type="continuous">
-		<parent link="arm_1" />
-		<child link="prop_front_left" />
-		<origin xyz="${-prop_loc + 0.01} ${prop_loc - 0.01} 0.021" rpy="0 0 0" />
-		<axis xyz="0 0 1" />
-	</joint>
-<!-- ======================================================== -->
-<!-- Define joint between prop br and frame -->
-	<joint name="joint_back_right_prop" type="continuous">
-		<parent link="arm_1" />
-		<child link="prop_back_right" />
-		<origin xyz="${prop_loc - 0.01} ${-prop_loc + 0.01} 0.021" rpy="0 0 0" />
-		<axis xyz="0 0 1" />
-	</joint>
-<!-- ======================================================== -->
-<!-- Define joint between prop br and frame -->
-	<joint name="joint_back_left_prop" type="continuous">
-		<parent link="arm_2" />
-		<child link="prop_back_left" />
-		<origin xyz="${-prop_loc + 0.01} ${-prop_loc + 0.01} 0.021" rpy="0 0 0" />
-		<axis xyz="0 0 1" />
-	</joint>
-<!-- ======================================================== -->
-<!-- Define joint between plate1 and frame -->
+
+	<!-- Define joint between plate1 and frame -->
 	<joint name="joint_plate1_frame" type="fixed">
 		<parent link="arm_2" />
 		<child link="plate1" />
@@ -214,34 +182,68 @@
 		<axis xyz="0 0 1" />
 	</joint>
 <!-- ======================================================== -->
-<!-- Define joint between cyl_fr and frame -->
-	<joint name="joint_cyl_fr_frame" type="fixed">
+<!-- Propeller joints -->
+	<!-- Define joint between prop fr and frame -->
+	<joint name="joint_front_left_prop" type="continuous">
 		<parent link="arm_2" />
-		<child link="cyl_fr" />
+		<child link="prop_front_left" />
+		<origin xyz="${prop_loc - 0.01} ${prop_loc - 0.01} 0.021" rpy="0 0 0"/>
+		<axis xyz="0 0 1" />
+	</joint>
+
+	<!-- Define joint between prop fl and frame -->
+	<joint name="joint_back_left_prop" type="continuous">
+		<parent link="arm_1" />
+		<child link="prop_back_left" />
+		<origin xyz="${-prop_loc + 0.01} ${prop_loc - 0.01} 0.021" rpy="0 0 0" />
+		<axis xyz="0 0 1" />
+	</joint>
+
+<!-- Define joint between prop br and frame -->
+	<joint name="joint_front_right_prop" type="continuous">
+		<parent link="arm_1" />
+		<child link="prop_front_right" />
+		<origin xyz="${prop_loc - 0.01} ${-prop_loc + 0.01} 0.021" rpy="0 0 0" />
+		<axis xyz="0 0 1" />
+	</joint>
+
+<!-- Define joint between prop br and frame -->
+	<joint name="joint_back_right_prop" type="continuous">
+		<parent link="arm_2" />
+		<child link="prop_back_right" />
+		<origin xyz="${-prop_loc + 0.01} ${-prop_loc + 0.01} 0.021" rpy="0 0 0" />
+		<axis xyz="0 0 1" />
+	</joint>
+<!-- ======================================================== -->
+<!-- Motor cylinder joints -->
+<!-- Define joint between cyl_fr and frame -->
+	<joint name="joint_cyl_fl_frame" type="fixed">
+		<parent link="arm_2" />
+		<child link="cyl_fl" />
 		<origin xyz="${prop_loc - 0.01} ${prop_loc - 0.01} 0.01" rpy="0 0 0" />
 		<axis xyz="0 0 1" />
 	</joint>
-<!-- ======================================================== -->
+
 <!-- Define joint between cyl_bl and frame -->
-	<joint name="joint_cyl_bl_frame" type="fixed">
+	<joint name="joint_cyl_br_frame" type="fixed">
 		<parent link="arm_2" />
-		<child link="cyl_bl" />
+		<child link="cyl_br" />
 		<origin xyz="${-prop_loc + 0.01} ${-prop_loc + 0.01} 0.01" rpy="0 0 0" />
 		<axis xyz="0 0 1" />
 	</joint>
-<!-- ======================================================== -->
+
 <!-- Define joint between cyl_fl and frame -->
-	<joint name="joint_cyl_fl_frame" type="fixed">
+	<joint name="joint_cyl_bl_frame" type="fixed">
 		<parent link="arm_1" />
-		<child link="cyl_fl" />
+		<child link="cyl_bl" />
 		<origin xyz="${-prop_loc + 0.01} ${prop_loc - 0.01} 0.01" rpy="0 0 0" />
 		<axis xyz="0 0 1" />
 	</joint>
-<!-- ======================================================== -->
+
 <!-- Define joint between cyl_br and frame -->
-	<joint name="joint_cyl_br_frame" type="fixed">
+	<joint name="joint_cyl_fr_frame" type="fixed">
 		<parent link="arm_1" />
-		<child link="cyl_br" />
+		<child link="cyl_fr" />
 		<origin xyz="${prop_loc - 0.01} ${-prop_loc + 0.01} 0.01" rpy="0 0 0" />
 		<axis xyz="0 0 1" />
 	</joint>
@@ -250,7 +252,7 @@
 	<joint name="joint_camera_frame" type="fixed">
 		<parent link="plate1" />
 		<child link="camera_link" />
-		<origin xyz="${0} ${0.06} 0.005" rpy="0 0.1 ${3.14/2}" />
+		<origin xyz="0.06 0 0.005" rpy="0 0.1 0" />
 		<axis xyz="0 0 1" />
 	</joint>
 <!-- ======================================================== -->
