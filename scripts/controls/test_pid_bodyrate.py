@@ -7,21 +7,27 @@ import unittest
 
 import numpy as np
 
-class TestControllers(unittest.TestCase):
-    def test_bodyrate_pitch_only(self):
+def standard_test(ref, meas, kP = np.diag([0.1, 0.1, 0.1])):
         # Testing body rate control of pitch at constant throttle
-        kP = np.diag([0.1, 0.1, 0.1])
         t0 = 1000
         t_control = 1010
+        
+        thrust = 10
 
         bodyrate_params = PIDFFParams(kP=kP)
         mControllerFactory = ControllerFactory(bodyrate_params = bodyrate_params)
         controller = mControllerFactory.create_controller("Bodyrate", t0)
 
+        control_vals = controller.control(t_control, v_sp_vel_ang=ref, v_cur_vel_ang=meas, thrust_cmd=thrust)
+        return control_vals
+
+class TestPIDBodyrate(unittest.TestCase):
+    def test_bodyrate_pitch_only(self):
+        # Testing body rate control of pitch at constant throttle
         ref = np.array([[0, 1, 0]]).T
         meas = np.array([[0, 0, 0]]).T
-        thrust = 10
-        control_vals = controller.control(t_control, v_sp_vel_ang=ref, v_cur_vel_ang=meas, thrust_cmd=thrust)
+
+        control_vals = standard_test(ref, meas)
         v_control_vals = np.array(control_vals.data)
         print(f"\nPitch-only Control values: {control_vals.data}")
         
@@ -33,18 +39,9 @@ class TestControllers(unittest.TestCase):
 
     def test_bodyrate_roll_only(self):
         # Testing body rate control of roll at constant throttle
-        kP = np.diag([0.1, 0.1, 0.1])
-        t0 = 1000
-        t_control = 1010
-
-        bodyrate_params = PIDFFParams(kP=kP)
-        mControllerFactory = ControllerFactory(bodyrate_params = bodyrate_params)
-        controller = mControllerFactory.create_controller("Bodyrate", t0)
-
         ref = np.array([[1, 0, 0]]).T
         meas = np.array([[0, 0, 0]]).T
-        thrust = 10
-        control_vals = controller.control(t_control, v_sp_vel_ang=ref, v_cur_vel_ang=meas, thrust_cmd=thrust)
+        control_vals = standard_test(ref, meas)
         v_control_vals = np.array(control_vals.data)
         print(f"\nRoll-only Control values: {control_vals.data}")
         
@@ -56,18 +53,9 @@ class TestControllers(unittest.TestCase):
 
     def test_bodyrate_yaw_only(self):
         # Testing body rate control of roll at constant throttle
-        kP = np.diag([0.1, 0.1, 0.1])
-        t0 = 1000
-        t_control = 1010
-
-        bodyrate_params = PIDFFParams(kP=kP)
-        mControllerFactory = ControllerFactory(bodyrate_params = bodyrate_params)
-        controller = mControllerFactory.create_controller("Bodyrate", t0)
-
         ref = np.array([[0, 0, 1]]).T
         meas = np.array([[0, 0, 0]]).T
-        thrust = 10
-        control_vals = controller.control(t_control, v_sp_vel_ang=ref, v_cur_vel_ang=meas, thrust_cmd=thrust)
+        control_vals = standard_test(ref, meas)
         v_control_vals = np.array(control_vals.data)
         print(f"\nYaw-only Control values: {control_vals.data}")
         
