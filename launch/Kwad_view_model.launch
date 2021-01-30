@@ -14,6 +14,6 @@
 		ns="Kwad"
 	/>
 	
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotuna_ekf_simulator)/rviz.rviz" required="true" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotuna_ekf_simulator)/view_model.rviz" required="true" />
 	
 </launch>
