@@ -12,7 +12,7 @@ def ros_pose_to_np_arrays(pose: Pose):
     # [x; y; z; w] heading quaternion vector
     # Note: Here we keep W (the real component) in the last place. This is the ordering that SciPy uses
     # Also note: SciPy only takes 1d vectors and not column vectors. Thus this is returns a 1d vector
-    heading = np.array([pose.orientation.x, pose.orietation.y, pose.orietation.z, pose.orietation.w])
+    heading = np.array([pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w])
     return (position, heading)
 
 def ros_vector3_to_np_array(vector: Vector3):

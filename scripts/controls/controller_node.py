@@ -33,13 +33,20 @@ class ControllerNode:
         bodyrate_i_min = -0.1
         bodyrate_i_max = 0.1
 
+        attitude_kP = np.diag([1, 1, 1])
+        attitude_kI = np.diag([0, 0, 0])
+        attitude_kD = np.diag([0, 0, 0])
+        attitude_i_min = -0.1
+        attitude_i_max = 0.1
+
         bodyrate_params = PIDFFParams(kP=bodyrate_kP, kI=bodyrate_kI, kD=bodyrate_kD, i_min = bodyrate_i_min, i_max = bodyrate_i_max)
+        attitude_params = PIDFFParams(kP=attitude_kP, kI=attitude_kI, kD=attitude_kD, i_min = attitude_i_min, i_max = attitude_i_max)
 
         # Create controller factory to generate the controller
-        controller_factory = ControllerFactory(bodyrate_params=bodyrate_params)
+        controller_factory = ControllerFactory(bodyrate_params=bodyrate_params, attitude_params=attitude_params)
 
         # Create the controller object from the controller factory
-        self.controller = controller_factory.create_controller("Bodyrate", rospy.get_time())
+        self.controller = controller_factory.create_controller("Attitude", rospy.get_time())
 
         # Initialize ROS publishers and subscribers
         self.odom_ref_sub = rospy.Subscriber("/Kwad/cmd_odom", Odometry, self.onOdomRef)
