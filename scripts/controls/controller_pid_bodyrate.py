@@ -73,4 +73,11 @@ class ControllerPIDBodyrate(Controller):
         out_msg = Float64MultiArray()
         out_msg.data = v_outputs[:, 0]
 
+        print("==================================")
+        print(f"Bodyrate ref: {np.reshape(v_sp_vel_ang, (3,))}")
+        print(f"meas: {np.reshape(v_cur_vel_ang, (3,))}")
+        print(f"error: {np.reshape(v_sp_vel_ang - v_cur_vel_ang, (3,))}")
+        print(f"Roll, pitch, yaw, thrust: {np.reshape(v_inputs, (4, ))}")
+        print(f"Control out: {out_msg.data}")
+
         return out_msg

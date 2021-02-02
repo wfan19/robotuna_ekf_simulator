@@ -7,13 +7,14 @@ import unittest
 
 import numpy as np
 
-def standard_test(ref, meas, kP = np.diag([0.1, 0.1, 0.1])):
+def standard_test(ref, meas):
         # Testing body rate control of pitch at constant throttle
         t0 = 1000
         t_control = 1010
         
         thrust = 10
 
+        kP = np.diag([500, 500, 500])
         bodyrate_params = PIDFFParams(kP=kP)
         mControllerFactory = ControllerFactory(bodyrate_params = bodyrate_params)
         controller = mControllerFactory.create_controller("Bodyrate", t0)
