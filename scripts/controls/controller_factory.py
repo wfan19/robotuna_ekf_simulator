@@ -3,7 +3,7 @@
 from pidff import *
 
 from controller_base import Controller
-from controller_pid_pos import Controller
+#from controller_pid_pos import Controller
 from controller_pid_att import *
 from controller_pid_bodyrate import *
 
