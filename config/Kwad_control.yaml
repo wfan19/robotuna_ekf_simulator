@@ -10,6 +10,8 @@ Kwad:
     group_props_controller:
         type: velocity_controllers/JointGroupVelocityController
         joints: 
+            # Note: The order of these joints determines which command message array
+            #       indices correspond to which propellors
             - joint_front_right_prop
             - joint_front_left_prop
             - joint_back_left_prop
