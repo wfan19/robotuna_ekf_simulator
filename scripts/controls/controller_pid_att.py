@@ -29,7 +29,8 @@ class ControllerPIDAtt(Controller):
         self.attitude_params = attitude_params
 
     # TODO: Create overloaded version that takes in vectors rather than Odoms
-    def control(self, thrust_cmd: float, time: float, reference_odom: Odometry, current_state: Odometry, v_sp_attitude: np.array=None, v_cur_attitude: np.array=None):
+    def control(self, time: float, thrust_cmd: float, reference_odom: Odometry, current_state: Odometry, v_sp_attitude: np.array=None, v_cur_attitude: np.array=None):
+
         # Convert target pose into np vector
         v_ref_pos, v_ref_attitude = ros_pose_to_np_arrays(reference_odom.pose.pose)            # Target position and heading
 
@@ -37,6 +38,14 @@ class ControllerPIDAtt(Controller):
         v_cur_pos, v_cur_attitude = ros_pose_to_np_arrays(current_state.pose.pose)   # Current position and heading
         v_cur_vel_lin = ros_vector3_to_np_array(current_state.twist.twist.linear)   # Current linear velocity
         v_cur_vel_ang = ros_vector3_to_np_array(current_state.twist.twist.angular)  # Current angular velocity
+
+        # Check if quaternion is invalid
+        if np.linalg.norm(v_ref_attitude) == 0 or np.linalg.norm(v_cur_attitude) == 0:
+            # TODO: Maybe make this return the most recent previous command?
+            print("[ControllerPIDAtt]: Invalid (zero) quaternion received - returning all zero commands")
+            out_msg = Float64MultiArray()
+            out_msg.data = [0, 0, 0, 0]
+            return out_msg
 
         # Convert quaternion vectors to SciPy rotations
         rot_ref_attitude = Rotation.from_quat(v_ref_attitude)
@@ -81,6 +90,7 @@ class ControllerPIDAtt(Controller):
         # See section 3.2.1 in the paper
         
         # Get current bodyZ:
+        # The third column of rotation matrices encode the corresponding desired position of the Z basis vector
         body_z_cur = rot_cur_attitude.as_matrix()[:, 2]
         body_z_sp = rot_sp_full.as_matrix()[:, 2]
         
@@ -88,14 +98,18 @@ class ControllerPIDAtt(Controller):
         q_sp_reduced = self.quat_between_vectors(body_z_cur, body_z_sp)
         rot_sp_reduced = Rotation.from_quat(q_sp_reduced)
         if np.abs(q_sp_reduced)[0] == 1 or np.abs(q_sp_reduced)[1] == 1:
+            # Corner case: vehicle and thrust have opposite directions
+            # Here we just ignore the reduced control
             rot_sp_reduced = rot_sp_full
         else:
+            # Transform rot_sp_reduced from body to world frame
             rot_sp_reduced = rot_sp_reduced * rot_cur_attitude
         # Finished calculating reduced rotation setpoint
 
         ## Mixing reduced and full attitude control to get final quaternion setpoint
         # See section 3.2.3 and eq(53) in the paper
         rot_reduced_to_full = rot_sp_reduced.inv() * rot_sp_full
+        rot_reduced_to_full = self.canonicalize_rotation(rot_reduced_to_full)
         q_reduced_to_full = rot_reduced_to_full.as_quat()
 
         # Constrain domains for arccos and arcsin
@@ -106,15 +120,15 @@ class ControllerPIDAtt(Controller):
         
         # Mixing quaternion. See eq(53)
         q_mixer = np.array([
-            np.cos(yaw_weight * np.arccos(q_reduced_to_full[3])),
             0,
             0,
-            np.cos(yaw_weight * np.arccos(q_reduced_to_full[2]))
+            np.sin(yaw_weight * np.arcsin(q_reduced_to_full[2])),
+            np.cos(yaw_weight * np.arccos(q_reduced_to_full[3]))
         ])
         
         # Apply reduced-to-full rotation to the mixing orientation
         rot_mixer = Rotation.from_quat(q_mixer)
-        rot_sp_mixed = rot_reduced_to_full * rot_mixer
+        rot_sp_mixed = rot_sp_reduced * rot_mixer
         # Finished mixing reduced and full rotation setpoints
 
         ##########################################
@@ -147,8 +161,10 @@ class ControllerPIDAtt(Controller):
         # An implementation of the Quaternion constructor given two vectors from here:
         # https://github.com/PX4/PX4-Matrix/blob/master/matrix/Quaternion.hpp
         
-        # I don't fully understand how they get their formula to be honest
-        q_out = np.array([0, 0, 0, 1])
+        # Also see this thread on Stackoverflow for a derivation with clean algebra:
+        # https://stackoverflow.com/questions/1171849/finding-quaternion-representing-the-rotation-from-one-vector-to-another
+        
+        q_out = np.array([0. , 0., 0., 1.])
         dot = np.dot(src, dest)
         cross = np.cross(src, dest)
         
@@ -171,4 +187,6 @@ class ControllerPIDAtt(Controller):
             q_out[3] = dot + np.linalg.norm(src) * np.linalg.norm(dest)
 
         q_out[0:3] = cross
+        
+        q_out = q_out / np.linalg.norm(q_out)
         return q_out

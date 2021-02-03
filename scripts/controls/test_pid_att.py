@@ -25,7 +25,7 @@ def scipy_rot_to_ros_odom(rotation: Rotation):
 # Ref and meas are in DEGREES
 # Euler angles for easier testing
 # Order: xyz (roll pitch yaw)
-def standard_test(ref: list, meas: list):
+def standard_test(ref: list=None, meas: list=None, rot_target: Rotation=None, rot_current: Rotation=None):
         # Testing body rate control of pitch at constant throttle
         t0 = 1000
         t_control = 1010
@@ -34,13 +34,16 @@ def standard_test(ref: list, meas: list):
         bodyrate_kP = np.diag([0.5, 0.5, 0.5])
 
         bodyrate_params = PIDFFParams(kP=bodyrate_kP)
-        attitude_params = AttCtrlParams(kP = 1, yaw_weight = 0.5)
+        attitude_params = AttCtrlParams(kP = 0.5, yaw_weight = 0.5)
 
         mControllerFactory = ControllerFactory(bodyrate_params=bodyrate_params, attitude_params=attitude_params)
         controller = mControllerFactory.create_controller("Attitude", t0)
 
-        rot_target = Rotation.from_euler("xyz", ref, degrees=True)
-        rot_current = Rotation.from_euler("xyz", meas, degrees=True) # Current state: Left side is currently up
+        if rot_target is None and ref is not None:
+            rot_target = Rotation.from_euler("xyz", ref, degrees=True)
+
+        if rot_current is None and meas is not None:
+            rot_current = Rotation.from_euler("xyz", meas, degrees=True)
         
         odom_ref = scipy_rot_to_ros_odom(rot_target)
         odom_meas = scipy_rot_to_ros_odom(rot_current)
@@ -50,6 +53,8 @@ def standard_test(ref: list, meas: list):
 
 class TestPIDAttitude(unittest.TestCase):
     def test_attitude_roll_only(self):
+        print("\n")
+
         # Testing body rate control of pitch at constant throttle
 
         # Currently flat
@@ -66,6 +71,7 @@ class TestPIDAttitude(unittest.TestCase):
         self.assertTrue(mean_left > mean_right)
 
     def test_attitude_pitch_only(self):
+        print("\n")
 
         # Currently flat
         # Aiming to get nose down
@@ -78,11 +84,12 @@ class TestPIDAttitude(unittest.TestCase):
         mean_back = np.mean(v_control_vals[2:4])
 
         # Y axis from the left = positive pitch is nose-down
-        self.assertTrue(mean_front > mean_back)
+        self.assertTrue(mean_back > mean_front)
 
     def test_attitude_yaw_only(self):
+        print("\n")
 
-        # Currently flat
+        # Currently pointing forward
         # Aiming to get nose left
         # Therefore we should see fl_br > fr_bl
         v_control_vals = standard_test(ref=[0, 0, 45], meas=[0, 0, 0])
@@ -94,6 +101,27 @@ class TestPIDAttitude(unittest.TestCase):
 
         # Z axis from the top = positive yaw is nose left
         self.assertTrue(mean_fl_br > mean_fr_bl)
+
+    def test_real_data(self):
+        print("\n")
+
+        # Real data from simulation
+        # In Euler Angles (rpy/xyz): [-11.356, 3.025, 5.480] deg
+        # Expected bodyrate_refs: positive roll, negative pitch, negative yaw
+        q_meas_real = [-0.1004, 0.021566, 0.05014, 0.99345]
+        rot_meas_real = Rotation.from_quat(q_meas_real)
+
+        rot_ref_real = Rotation.from_quat([0, 0, 0, 1])
+
+        v_control_vals = standard_test(rot_target=rot_ref_real, rot_current=rot_meas_real)
+        print(f"\nReal data control values: {np.abs(v_control_vals)}")
+        
+        v_control_vals = np.abs(v_control_vals.data)
+        mean_left = np.mean(v_control_vals[1:3])
+        mean_right = np.mean([v_control_vals[0], v_control_vals[3]])
+
+        # -11 deg roll = left is down, so mean_left should be greater than mean_right
+        self.assertTrue(mean_left > mean_right)
 
 if __name__ == '__main__':
     unittest.main()
