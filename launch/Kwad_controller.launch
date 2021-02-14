@@ -1,0 +1,15 @@
+<launch>
+    <node name="controller_node" pkg="robotuna_ekf_simulator" type="controller_node.py"
+        ns="Kwad"
+        args="controller_node"
+    />
+
+	<node name="euler_to_odom" pkg="robotuna_ekf_simulator" type="euler_to_odom.py"
+		ns="Kwad"
+		args="euler_to_odom"
+	>
+        <param name="euler_topic" value="/Kwad/cmd_euler" />
+		<param name="odom_topic" value="/Kwad/cmd_odom" />
+	</node>
+
+</launch>
