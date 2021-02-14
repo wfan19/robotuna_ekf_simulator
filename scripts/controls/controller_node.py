@@ -37,7 +37,7 @@ class ControllerNode:
         bodyrate_i_max = 0.01
 
         bodyrate_params = PIDFFParams(kP=bodyrate_kP, kI=bodyrate_kI, kD=bodyrate_kD, i_min = bodyrate_i_min, i_max = bodyrate_i_max)
-        attitude_params = AttCtrlParams(kP=0.75, yaw_weight=0.4)
+        attitude_params = AttCtrlParams(kP=0.6, yaw_weight=0.3)
 
         # Create controller factory to generate the controller
         controller_factory = ControllerFactory(bodyrate_params=bodyrate_params, attitude_params=attitude_params)
