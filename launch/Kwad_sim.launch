@@ -27,7 +27,7 @@
 	</include>
 
 	<!-- Spawn the model within Gazebo -->
-	<!-- Note that it is namesapced (ns) to be under "Kwad, so 
+	<!-- Note that it is namesapced (ns) to be under "Kwad, so even if I didn't use absolute namespaces
 		 the -param tag makes it search under /Kwad/robot_description actually -->
 	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
 		ns="Kwad"
@@ -40,6 +40,7 @@
 		"
 	/>
 
+	<!-- Spawn the odom_to_tf node, which remaps ground truth odometries to TF messages -->
 	<node name="odom_to_tf" pkg="robotuna_ekf_simulator" type="odom_to_tf.py"
 		ns="Kwad"
 		args="odom_to_tf"

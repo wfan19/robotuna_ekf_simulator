@@ -1,9 +1,16 @@
 <launch>
+	 
+	 <!-- Run cascading PID Orientation controller -->
+	 <!-- TODO: Support configuring the controller via rosparams -->
     <node name="controller_node" pkg="robotuna_ekf_simulator" type="controller_node.py"
         ns="Kwad"
         args="controller_node"
+		output="screen"
     />
 
+	<!-- Run Euler angle input frontend. The node converts a 
+		 commanded euler angle to a commanded Quaternion in a
+		 Odometry message -->
 	<node name="euler_to_odom" pkg="robotuna_ekf_simulator" type="euler_to_odom.py"
 		ns="Kwad"
 		args="euler_to_odom"
