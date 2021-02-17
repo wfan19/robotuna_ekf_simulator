@@ -109,10 +109,10 @@
       <pose frame=''>-0.327441 13.9283 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>602 64000000</sim_time>
-      <real_time>173 635674278</real_time>
-      <wall_time>1613487182 565941135</wall_time>
-      <iterations>171933</iterations>
+      <sim_time>1000 328000000</sim_time>
+      <real_time>715 281301076</real_time>
+      <wall_time>1613526811 315136141</wall_time>
+      <iterations>384076</iterations>
       <model name='apartment'>
         <pose frame=''>-22.5328 -88.7189 0 0 0 -1.5708</pose>
         <scale>1 1 1</scale>
@@ -133,21 +133,11 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='fire_station'>
-        <pose frame=''>-36.059 66.3242 0 0 -0 3.14159</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-36.059 66.3242 0 0 -0 3.14159</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
       <model name='law_office'>
-        <pose frame=''>-93.079 -58.5052 0 0 -0 1.5708</pose>
+        <pose frame=''>-93.079 -58.5052 -0.38857 0 -0 1.5708</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>-93.079 -58.5052 0 0 -0 1.5708</pose>
+          <pose frame=''>-93.079 -58.5052 -0.38857 0 -0 1.5708</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -204,10 +194,16 @@
         </link>
       </model>
       <model name='water_tower_0'>
-        <pose frame=''>-53.1207 -99.4552 0 0 0 -0.355533</pose>
+        <pose frame=''>-54.6571 -94.8192 -0.958512 0 -0 1.27275</pose>
         <scale>1 1 1</scale>
+        <link name='Apriltag36_11_00000'>
+          <pose frame=''>-54.1582 -92.3388 18.8626 1.5708 4e-06 2.85744</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
         <link name='link'>
-          <pose frame=''>-53.1207 -99.4552 0 0 0 -0.355533</pose>
+          <pose frame=''>-54.6571 -94.8192 -0.958512 0 -0 1.27275</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -216,6 +212,12 @@
       <model name='water_tower_1'>
         <pose frame=''>-141.691 82.9558 0 0 0 -0.40013</pose>
         <scale>1 1 1</scale>
+        <link name='Apriltag36_11_00001'>
+          <pose frame=''>-139.274 82.2067 19.8211 1.5708 4e-06 1.18456</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
         <link name='link'>
           <pose frame=''>-141.691 82.9558 0 0 0 -0.40013</pose>
           <velocity>0 0 0 0 -0 0</velocity>
@@ -223,91 +225,145 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='water_tower_2'>
-        <pose frame=''>-58.6556 126.723 0 0 -0 0.350805</pose>
+      <model name='water_tower_10'>
+        <pose frame=''>10.3906 -47.6858 0 0 -0 2.19981</pose>
         <scale>1 1 1</scale>
-        <link name='link'>      
-          <pose frame=''>-58.6556 126.723 0 0 -0 0.350805</pose>
+        <link name='Apriltag36_11_00010'>
+          <pose frame=''>8.70607 -45.7981 19.8211 1.5708 4e-06 -2.49868</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='link'>
+          <pose frame=''>10.3906 -47.6858 0 0 -0 2.19981</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='water_tower_2'>
+        <pose frame=''>-58.6556 126.723 0 0 0 -1.0745</pose>
+        <scale>1 1 1</scale>
+        <link name='Apriltag36_11_00002'>
+          <pose frame=''>-57.2357 124.629 19.8211 1.5708 4e-06 0.510187</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='link'>
+          <pose frame=''>-58.6556 126.723 0 0 0 -1.0745</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='water_tower_3'>
-        <pose frame=''>90.8882 -56.6029 0 0 -0 0</pose>
+        <pose frame=''>90.8882 -56.6029 -2.60566 0 -0 2.87568</pose>
         <scale>1 1 1</scale>
+        <link name='Apriltag36_11_00003'>
+          <pose frame=''>88.3931 -56.184 17.2154 1.5708 4e-06 -1.82281</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
         <link name='link'>
-          <pose frame=''>90.8882 -56.6029 0 0 -0 0</pose>
+          <pose frame=''>90.8882 -56.6029 -2.60566 0 -0 2.87568</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='water_tower_4'>
-        <pose frame=''>63.6399 114.326 0 0 -0 0</pose>
+        <pose frame=''>63.6399 114.326 0 0 0 -2.0249</pose>
         <scale>1 1 1</scale>
+        <link name='Apriltag36_11_00004'>
+          <pose frame=''>62.7615 111.953 19.8211 1.5708 4e-06 -0.440215</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
         <link name='link'>
-          <pose frame=''>63.6399 114.326 0 0 -0 0</pose>
+          <pose frame=''>63.6399 114.326 0 0 0 -2.0249</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='water_tower_5'>
-        <pose frame=''>43.5991 31.6193 0 0 -0 0.48874</pose>
+        <pose frame=''>43.5991 31.6193 0 0 0 -2.58912</pose>
         <scale>1 1 1</scale>
+        <link name='Apriltag36_11_00005'>
+          <pose frame=''>41.5881 30.0841 19.8211 1.5708 4e-06 -1.00443</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
         <link name='link'>
-          <pose frame=''>43.5991 31.6193 0 0 -0 0.48874</pose>
+          <pose frame=''>43.5991 31.6193 0 0 0 -2.58912</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='water_tower_6'>
-        <pose frame=''>51.765 -31.4124 0 0 0 -0.385335</pose>
+        <pose frame=''>51.765 -31.4124 0 0 -0 2.67541</pose>
         <scale>1 1 1</scale>
+        <link name='Apriltag36_11_00006'>
+          <pose frame=''>49.4031 -30.5055 19.8211 1.5708 4e-06 -2.02308</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
         <link name='link'>
-          <pose frame=''>51.765 -31.4124 0 0 0 -0.385335</pose>
+          <pose frame=''>51.765 -31.4124 0 0 -0 2.67541</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='water_tower_7'>
-        <pose frame=''>-74.7421 30.7732 0 0 0 -0.272025</pose>
+        <pose frame=''>-134.369 -29.954 0 0 -0 0</pose>
         <scale>1 1 1</scale>
+        <link name='Apriltag36_11_00007'>
+          <pose frame=''>-131.852 -29.7025 19.8211 1.5708 4e-06 1.58469</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
         <link name='link'>
-          <pose frame=''>-74.7421 30.7732 0 0 0 -0.272025</pose>
+          <pose frame=''>-134.369 -29.954 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='water_tower_8'>
-        <pose frame=''>138.716 122.322 -18.3666 0 0.150719 0</pose>
+        <pose frame=''>138.716 122.322 -18.3666 -0.082215 -0.126464 -2.56289</pose>
         <scale>1 1 1</scale>
+        <link name='Apriltag36_11_00008'>
+          <pose frame=''>139.736 120.745 1.52684 1.44505 0.083311 -0.988659</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
         <link name='link'>
-          <pose frame=''>138.716 122.322 -18.3666 0 0.150719 0</pose>
+          <pose frame=''>138.716 122.322 -18.3666 -0.082215 -0.126464 -2.56289</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='water_tower_9'>
-        <pose frame=''>191.626 3.09809 -33.2187 -0.261032 0.163191 -0.043372</pose>
+        <pose frame=''>191.626 3.09809 -33.2187 0.276498 -0.134816 2.99414</pose>
         <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>191.626 3.09809 -33.2187 -0.261032 0.163191 -0.043372</pose>
+        <link name='Apriltag36_11_00009'>
+          <pose frame=''>192.462 8.19963 -13.9171 1.42688 -0.271954 -1.66584</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
-      </model>
-      <model name='water_tower_10'>
-        <pose frame=''>10.3906 -47.6858 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>10.3906 -47.6858 0 0 -0 0</pose>
+          <pose frame=''>191.626 3.09809 -33.2187 0.276498 -0.134816 2.99414</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -319,7 +375,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>41.8781 -116.898 39.6973 0 0.263577 2.11528</pose>
+        <pose frame=''>186.008 -81.6226 156.084 0 0.583579 2.76167</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -358,7 +414,27 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose frame=''>-53.1207 -99.4552 0 0 -0 0</pose>
+      <link name='Apriltag36_11_00000'>
+        <pose frame=''>2.51753 0.251468 19.8211 1.5708 4e-06 1.58469</pose>
+        <visual name='main_Visual'>
+          <geometry>
+            <box>
+              <size>1 1 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://Apriltag36_11_00000/materials/scripts</uri>
+              <uri>model://Apriltag36_11_00000/materials/textures</uri>
+              <name>Apriltag36_11_00000</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-53.1207 -99.4552 0 0 0 -0.355533</pose>
     </model>
     <model name='water_tower_1'>
       <static>1</static>
@@ -389,6 +465,26 @@
               <uri>model://water_tower/meshes/water_tower.dae</uri>
             </mesh>
           </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='Apriltag36_11_00001'>
+        <pose frame=''>2.51753 0.251468 19.8211 1.5708 4e-06 1.58469</pose>
+        <visual name='main_Visual'>
+          <geometry>
+            <box>
+              <size>1 1 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://Apriltag36_11_00001/materials/scripts</uri>
+              <uri>model://Apriltag36_11_00001/materials/textures</uri>
+              <name>Apriltag36_11_00001</name>
+            </script>
+          </material>
         </visual>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
@@ -430,6 +526,26 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
+      <link name='Apriltag36_11_00002'>
+        <pose frame=''>2.51753 0.251468 19.8211 1.5708 4e-06 1.58469</pose>
+        <visual name='main_Visual'>
+          <geometry>
+            <box>
+              <size>1 1 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://Apriltag36_11_00002/materials/scripts</uri>
+              <uri>model://Apriltag36_11_00002/materials/textures</uri>
+              <name>Apriltag36_11_00002</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
       <pose frame=''>-58.6556 126.723 0 0 -0 0</pose>
     </model>
     <model name='water_tower_3'>
@@ -461,6 +577,26 @@
               <uri>model://water_tower/meshes/water_tower.dae</uri>
             </mesh>
           </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='Apriltag36_11_00003'>
+        <pose frame=''>2.51753 0.251468 19.8211 1.5708 4e-06 1.58469</pose>
+        <visual name='main_Visual'>
+          <geometry>
+            <box>
+              <size>1 1 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://Apriltag36_11_00003/materials/scripts</uri>
+              <uri>model://Apriltag36_11_00003/materials/textures</uri>
+              <name>Apriltag36_11_00003</name>
+            </script>
+          </material>
         </visual>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
@@ -502,6 +638,26 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
+      <link name='Apriltag36_11_00004'>
+        <pose frame=''>2.51753 0.251468 19.8211 1.5708 4e-06 1.58469</pose>
+        <visual name='main_Visual'>
+          <geometry>
+            <box>
+              <size>1 1 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://Apriltag36_11_00004/materials/scripts</uri>
+              <uri>model://Apriltag36_11_00004/materials/textures</uri>
+              <name>Apriltag36_11_00004</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
       <pose frame=''>63.6399 114.326 0 0 -0 0</pose>
     </model>
     <model name='water_tower_5'>
@@ -533,6 +689,26 @@
               <uri>model://water_tower/meshes/water_tower.dae</uri>
             </mesh>
           </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='Apriltag36_11_00005'>
+        <pose frame=''>2.51753 0.251468 19.8211 1.5708 4e-06 1.58469</pose>
+        <visual name='main_Visual'>
+          <geometry>
+            <box>
+              <size>1 1 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://Apriltag36_11_00005/materials/scripts</uri>
+              <uri>model://Apriltag36_11_00005/materials/textures</uri>
+              <name>Apriltag36_11_00005</name>
+            </script>
+          </material>
         </visual>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
@@ -574,6 +750,26 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
+      <link name='Apriltag36_11_00006'>
+        <pose frame=''>2.51753 0.251468 19.8211 1.5708 4e-06 1.58469</pose>
+        <visual name='main_Visual'>
+          <geometry>
+            <box>
+              <size>1 1 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://Apriltag36_11_00006/materials/scripts</uri>
+              <uri>model://Apriltag36_11_00006/materials/textures</uri>
+              <name>Apriltag36_11_00006</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
       <pose frame=''>51.765 -31.4124 0 0 -0 0</pose>
     </model>
     <model name='water_tower_7'>
@@ -610,7 +806,27 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose frame=''>-74.7421 30.7732 0 0 -0 0</pose>
+      <link name='Apriltag36_11_00007'>
+        <pose frame=''>2.51753 0.251468 19.8211 1.5708 4e-06 1.58469</pose>
+        <visual name='main_Visual'>
+          <geometry>
+            <box>
+              <size>1 1 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://Apriltag36_11_00007/materials/scripts</uri>
+              <uri>model://Apriltag36_11_00007/materials/textures</uri>
+              <name>Apriltag36_11_00007</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>10 -10.4124 0 0 -0 0</pose>
     </model>
     <model name='water_tower_8'>
       <static>1</static>
@@ -641,6 +857,26 @@
               <uri>model://water_tower/meshes/water_tower.dae</uri>
             </mesh>
           </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='Apriltag36_11_00008'>
+        <pose frame=''>2.51753 0.251468 19.8211 1.5708 4e-06 1.58469</pose>
+        <visual name='main_Visual'>
+          <geometry>
+            <box>
+              <size>1 1 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://Apriltag36_11_00008/materials/scripts</uri>
+              <uri>model://Apriltag36_11_00008/materials/textures</uri>
+              <name>Apriltag36_11_00008</name>
+            </script>
+          </material>
         </visual>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
@@ -682,6 +918,26 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
+      <link name='Apriltag36_11_00009'>
+        <pose frame=''>2.51753 0.251468 19.8211 1.5708 4e-06 1.58469</pose>
+        <visual name='main_Visual'>
+          <geometry>
+            <box>
+              <size>1 1 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://Apriltag36_11_00009/materials/scripts</uri>
+              <uri>model://Apriltag36_11_00009/materials/textures</uri>
+              <name>Apriltag36_11_00009</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
       <pose frame=''>193.356 4.15143 0 0 -0 0</pose>
     </model>
     <model name='water_tower_10'>
@@ -713,6 +969,26 @@
               <uri>model://water_tower/meshes/water_tower.dae</uri>
             </mesh>
           </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='Apriltag36_11_00010'>
+        <pose frame=''>2.51753 0.251468 19.8211 1.5708 4e-06 1.58469</pose>
+        <visual name='main_Visual'>
+          <geometry>
+            <box>
+              <size>1 1 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://Apriltag36_11_00010/materials/scripts</uri>
+              <uri>model://Apriltag36_11_00010/materials/textures</uri>
+              <name>Apriltag36_11_00010</name>
+            </script>
+          </material>
         </visual>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
@@ -899,316 +1175,6 @@
         <kinematic>0</kinematic>
       </link>
       <pose frame=''>-55.1789 -15.895 0 0 -0 0</pose>
-    </model>
-    <model name='fire_station'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='main'>
-          <pose frame=''>0 -0.135 5 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>19.98 9.68 10</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='front_top'>
-          <pose frame=''>0 4.957 7 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>20 0.515 6</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='column_0'>
-          <pose frame=''>9.333 4.957 2 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>1.315 0.515 4</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='column_1'>
-          <pose frame=''>3.33 4.957 2 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>2.63 0.515 4</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='column_2'>
-          <pose frame=''>-3.33 4.957 2 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>2.63 0.515 4</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='column_3'>
-          <pose frame=''>-9.333 4.957 2 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>1.315 0.515 4</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='roof_back'>
-          <pose frame=''>0 -2.742 10.467 0.25 -0 0</pose>
-          <geometry>
-            <box>
-              <size>21.47 6.12 0.28</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='roof_front'>
-          <pose frame=''>0 3.12 10.467 -0.25 0 0</pose>
-          <geometry>
-            <box>
-              <size>21.47 6.12 0.28</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='roof_base'>
-          <pose frame=''>0 0.188 9.705 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>21.47 11.86 0.28</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='roof_filling_0'>
-          <pose frame=''>0 0.188 9.985 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>21.47 9.53 0.28</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='roof_filling_1'>
-          <pose frame=''>0 0.188 10.14 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>21.47 8.41 0.28</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='roof_filling_2'>
-          <pose frame=''>0 0.188 10.42 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>21.47 6.25 0.28</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='roof_filling_3'>
-          <pose frame=''>0 0.188 10.7 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>21.47 4.05 0.28</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <collision name='roof_filling_4'>
-          <pose frame=''>0 0.188 10.98 0 -0 0</pose>
-          <geometry>
-            <box>
-              <size>21.47 1.83 0.28</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://fire_station/meshes/fire_station.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>-36.059 66.3242 0 0 -0 0</pose>
     </model>
     <model name='apartment'>
       <static>1</static>
