@@ -42,42 +42,288 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
-    <model name='water_tower'>
+    <model name='apollo15_landing_site_1000x1000'>
       <static>1</static>
       <link name='link'>
         <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://water_tower/meshes/water_tower.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
           <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
             <friction>
+              <ode>
+                <mu>0.2</mu>
+              </ode>
               <torsional>
                 <ode/>
               </torsional>
-              <ode/>
             </friction>
+            <contact>
+              <ode>
+                <soft_cfm>1</soft_cfm>
+                <kp>100000</kp>
+                <kd>1</kd>
+                <max_vel>1e-06</max_vel>
+                <min_depth>0.02</min_depth>
+              </ode>
+            </contact>
+            <bounce/>
           </surface>
+          <geometry>
+            <heightmap>
+              <uri>model://apollo15_landing_site_1000x1000/materials/textures/NAC_DTM_APOLLO15_E261N0036_257x257+7472+2152.png</uri>
+              <size>514 514 49</size>
+              <pos>0 0 -45</pos>
+              <texture>
+                <size>10</size>
+                <diffuse>__default__</diffuse>
+                <normal>__default__</normal>
+              </texture>
+              <blend>
+                <min_height>0</min_height>
+                <fade_dist>0</fade_dist>
+              </blend>
+            </heightmap>
+          </geometry>
+          <max_contacts>10</max_contacts>
         </collision>
         <visual name='visual'>
           <geometry>
-            <mesh>
-              <uri>model://water_tower/meshes/water_tower.dae</uri>
-            </mesh>
+            <heightmap>
+              <texture>
+                <diffuse>model://apollo15_landing_site_1000x1000/materials/textures/AS16-110-18026HR-512x512.jpg</diffuse>
+                <normal>file://media/materials/textures/flat_normal.png</normal>
+                <size>2</size>
+              </texture>
+              <uri>model://apollo15_landing_site_1000x1000/materials/textures/NAC_DTM_APOLLO15_E261N0036_257x257+7472+2152.png</uri>
+              <size>514 514 49</size>
+              <pos>0 0 -45</pos>
+              <blend>
+                <min_height>0</min_height>
+                <fade_dist>0</fade_dist>
+              </blend>
+            </heightmap>
           </geometry>
         </visual>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose frame=''>10.3906 -47.6858 0 0 -0 0</pose>
+      <pose frame=''>-0.327441 13.9283 0 0 -0 0</pose>
     </model>
+    <state world_name='default'>
+      <sim_time>602 64000000</sim_time>
+      <real_time>173 635674278</real_time>
+      <wall_time>1613487182 565941135</wall_time>
+      <iterations>171933</iterations>
+      <model name='apartment'>
+        <pose frame=''>-22.5328 -88.7189 0 0 0 -1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-22.5328 -88.7189 0 0 0 -1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='apollo15_landing_site_1000x1000'>
+        <pose frame=''>-0.327441 13.9283 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-0.327441 13.9283 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='fire_station'>
+        <pose frame=''>-36.059 66.3242 0 0 -0 3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-36.059 66.3242 0 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='law_office'>
+        <pose frame=''>-93.079 -58.5052 0 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-93.079 -58.5052 0 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='reactor'>
+        <pose frame=''>8.22658 139.673 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>8.22658 139.673 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='school'>
+        <pose frame=''>-99.3412 -35.7984 0 0 -0 1.5708</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-99.3412 -35.7984 0 0 -0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='tower_crane_0'>
+        <pose frame=''>53.9995 -128.843 0 0 -0 2.40166</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>53.9995 -128.843 0 0 -0 2.40166</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='tower_crane_1'>
+        <pose frame=''>-102.786 -68.4661 0 0 -0 0.504344</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-102.786 -68.4661 0 0 -0 0.504344</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='tower_crane_2'>
+        <pose frame=''>-83.1551 126.536 0 0 0 -0.641117</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-83.1551 126.536 0 0 0 -0.641117</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='water_tower_0'>
+        <pose frame=''>-53.1207 -99.4552 0 0 0 -0.355533</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-53.1207 -99.4552 0 0 0 -0.355533</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='water_tower_1'>
+        <pose frame=''>-141.691 82.9558 0 0 0 -0.40013</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-141.691 82.9558 0 0 0 -0.40013</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='water_tower_2'>
+        <pose frame=''>-58.6556 126.723 0 0 -0 0.350805</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>      
+          <pose frame=''>-58.6556 126.723 0 0 -0 0.350805</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='water_tower_3'>
+        <pose frame=''>90.8882 -56.6029 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>90.8882 -56.6029 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='water_tower_4'>
+        <pose frame=''>63.6399 114.326 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>63.6399 114.326 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='water_tower_5'>
+        <pose frame=''>43.5991 31.6193 0 0 -0 0.48874</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>43.5991 31.6193 0 0 -0 0.48874</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='water_tower_6'>
+        <pose frame=''>51.765 -31.4124 0 0 0 -0.385335</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>51.765 -31.4124 0 0 0 -0.385335</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='water_tower_7'>
+        <pose frame=''>-74.7421 30.7732 0 0 0 -0.272025</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-74.7421 30.7732 0 0 0 -0.272025</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='water_tower_8'>
+        <pose frame=''>138.716 122.322 -18.3666 0 0.150719 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>138.716 122.322 -18.3666 0 0.150719 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='water_tower_9'>
+        <pose frame=''>191.626 3.09809 -33.2187 -0.261032 0.163191 -0.043372</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>191.626 3.09809 -33.2187 -0.261032 0.163191 -0.043372</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='water_tower_10'>
+        <pose frame=''>10.3906 -47.6858 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>10.3906 -47.6858 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose frame=''>0 0 100 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>41.8781 -116.898 39.6973 0 0.263577 2.11528</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
     <model name='water_tower_0'>
       <static>1</static>
       <link name='link'>
@@ -258,225 +504,6 @@
       </link>
       <pose frame=''>63.6399 114.326 0 0 -0 0</pose>
     </model>
-    <state world_name='default'>
-      <sim_time>602 64000000</sim_time>
-      <real_time>173 635674278</real_time>
-      <wall_time>1613487182 565941135</wall_time>
-      <iterations>171933</iterations>
-      <model name='apartment'>
-        <pose frame=''>-22.5328 -88.7189 0 0 0 -1.5708</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-22.5328 -88.7189 0 0 0 -1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='apollo15_landing_site_1000x1000'>
-        <pose frame=''>-0.327441 13.9283 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-0.327441 13.9283 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='fire_station'>
-        <pose frame=''>-36.059 66.3242 0 0 -0 3.14159</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-36.059 66.3242 0 0 -0 3.14159</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='law_office'>
-        <pose frame=''>-93.079 -58.5052 0 0 -0 1.5708</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-93.079 -58.5052 0 0 -0 1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='reactor'>
-        <pose frame=''>8.22658 139.673 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>8.22658 139.673 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='reactor_clone'>
-        <pose frame=''>-155.898 3.76698 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-155.898 3.76698 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='school'>
-        <pose frame=''>-99.3412 -35.7984 0 0 -0 1.5708</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-99.3412 -35.7984 0 0 -0 1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='tower_crane'>
-        <pose frame=''>-102.786 -68.4661 0 0 -0 0.504344</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-102.786 -68.4661 0 0 -0 0.504344</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='tower_crane_0'>
-        <pose frame=''>53.9995 -128.843 0 0 -0 2.40166</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>53.9995 -128.843 0 0 -0 2.40166</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='tower_crane_clone'>
-        <pose frame=''>-83.1551 126.536 0 0 0 -0.641117</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-83.1551 126.536 0 0 0 -0.641117</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='water_tower'>
-        <pose frame=''>10.3906 -47.6858 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>10.3906 -47.6858 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='water_tower_0'>
-        <pose frame=''>-53.1207 -99.4552 0 0 0 -0.355533</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-53.1207 -99.4552 0 0 0 -0.355533</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='water_tower_1'>
-        <pose frame=''>-141.691 82.9558 0 0 0 -0.40013</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-141.691 82.9558 0 0 0 -0.40013</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='water_tower_2'>
-        <pose frame=''>-58.6556 126.723 0 0 -0 0.350805</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-58.6556 126.723 0 0 -0 0.350805</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='water_tower_3'>
-        <pose frame=''>90.8882 -56.6029 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>90.8882 -56.6029 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='water_tower_4'>
-        <pose frame=''>63.6399 114.326 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>63.6399 114.326 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='water_tower_5'>
-        <pose frame=''>43.5991 31.6193 0 0 -0 0.48874</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>43.5991 31.6193 0 0 -0 0.48874</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='water_tower_6'>
-        <pose frame=''>51.765 -31.4124 0 0 0 -0.385335</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>51.765 -31.4124 0 0 0 -0.385335</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='water_tower_7'>
-        <pose frame=''>-74.7421 30.7732 0 0 0 -0.272025</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-74.7421 30.7732 0 0 0 -0.272025</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='water_tower_8'>
-        <pose frame=''>138.716 122.322 -18.3666 0 0.150719 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>138.716 122.322 -18.3666 0 0.150719 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='water_tower_9'>
-        <pose frame=''>191.626 3.09809 -33.2187 -0.261032 0.163191 -0.043372</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>191.626 3.09809 -33.2187 -0.261032 0.163191 -0.043372</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <light name='sun'>
-        <pose frame=''>0 0 100 0 -0 0</pose>
-      </light>
-    </state>
     <model name='water_tower_5'>
       <static>1</static>
       <link name='link'>
@@ -549,79 +576,6 @@
       </link>
       <pose frame=''>51.765 -31.4124 0 0 -0 0</pose>
     </model>
-    <gui fullscreen='0'>
-      <camera name='user_camera'>
-        <pose frame=''>41.8781 -116.898 39.6973 0 0.263577 2.11528</pose>
-        <view_controller>orbit</view_controller>
-        <projection_type>perspective</projection_type>
-      </camera>
-    </gui>
-    <model name='apollo15_landing_site_1000x1000'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <surface>
-            <friction>
-              <ode>
-                <mu>0.2</mu>
-              </ode>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <contact>
-              <ode>
-                <soft_cfm>1</soft_cfm>
-                <kp>100000</kp>
-                <kd>1</kd>
-                <max_vel>1e-06</max_vel>
-                <min_depth>0.02</min_depth>
-              </ode>
-            </contact>
-            <bounce/>
-          </surface>
-          <geometry>
-            <heightmap>
-              <uri>model://apollo15_landing_site_1000x1000/materials/textures/NAC_DTM_APOLLO15_E261N0036_257x257+7472+2152.png</uri>
-              <size>514 514 49</size>
-              <pos>0 0 -45</pos>
-              <texture>
-                <size>10</size>
-                <diffuse>__default__</diffuse>
-                <normal>__default__</normal>
-              </texture>
-              <blend>
-                <min_height>0</min_height>
-                <fade_dist>0</fade_dist>
-              </blend>
-            </heightmap>
-          </geometry>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <heightmap>
-              <texture>
-                <diffuse>model://apollo15_landing_site_1000x1000/materials/textures/AS16-110-18026HR-512x512.jpg</diffuse>
-                <normal>file://media/materials/textures/flat_normal.png</normal>
-                <size>2</size>
-              </texture>
-              <uri>model://apollo15_landing_site_1000x1000/materials/textures/NAC_DTM_APOLLO15_E261N0036_257x257+7472+2152.png</uri>
-              <size>514 514 49</size>
-              <pos>0 0 -45</pos>
-              <blend>
-                <min_height>0</min_height>
-                <fade_dist>0</fade_dist>
-              </blend>
-            </heightmap>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>-0.327441 13.9283 0 0 -0 0</pose>
-    </model>
     <model name='water_tower_7'>
       <static>1</static>
       <link name='link'>
@@ -657,78 +611,6 @@
         <kinematic>0</kinematic>
       </link>
       <pose frame=''>-74.7421 30.7732 0 0 -0 0</pose>
-    </model>
-    <model name='tower_crane'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://tower_crane/meshes/tower_crane.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://tower_crane/meshes/tower_crane.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>-102.786 -68.4661 0 0 -0 0</pose>
-    </model>
-    <model name='reactor'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://reactor/meshes/reactor.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://reactor/meshes/reactor.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>8.22658 139.673 0 0 -0 0</pose>
     </model>
     <model name='water_tower_8'>
       <static>1</static>
@@ -802,6 +684,78 @@
       </link>
       <pose frame=''>193.356 4.15143 0 0 -0 0</pose>
     </model>
+    <model name='water_tower_10'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://water_tower/meshes/water_tower.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://water_tower/meshes/water_tower.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>10.3906 -47.6858 0 0 -0 0</pose>
+    </model>
+    <model name='reactor'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://reactor/meshes/reactor.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://reactor/meshes/reactor.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>8.22658 139.673 0 0 -0 0</pose>
+    </model>
     <model name='tower_crane_0'>
       <static>1</static>
       <link name='link'>
@@ -838,13 +792,13 @@
       </link>
       <pose frame=''>-94.9509 107.623 0 0 -0 0</pose>
     </model>
-    <model name='reactor_clone'>
+    <model name='tower_crane_1'>
       <static>1</static>
       <link name='link'>
         <collision name='collision'>
           <geometry>
             <mesh>
-              <uri>model://reactor/meshes/reactor.dae</uri>
+              <uri>model://tower_crane/meshes/tower_crane.dae</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -864,7 +818,7 @@
         <visual name='visual'>
           <geometry>
             <mesh>
-              <uri>model://reactor/meshes/reactor.dae</uri>
+              <uri>model://tower_crane/meshes/tower_crane.dae</uri>
             </mesh>
           </geometry>
         </visual>
@@ -872,9 +826,9 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose frame=''>-93.2078 -112.76 0 0 -0 0</pose>
+      <pose frame=''>-102.786 -68.4661 0 0 -0 0</pose>
     </model>
-    <model name='tower_crane_clone'>
+    <model name='tower_crane_2'>
       <static>1</static>
       <link name='link'>
         <collision name='collision'>
