@@ -33,7 +33,11 @@
 		ns="Kwad"
 		respawn="false"
 		output="screen"
-		args="-urdf -model Kwad -param /Kwad/robot_description"
+		args="-urdf 
+			-model Kwad
+			-param /Kwad/robot_description
+			-x 0 -y 0 -z 1.1
+		"
 	/>
 
 	<node name="odom_to_tf" pkg="robotuna_ekf_simulator" type="odom_to_tf.py"
