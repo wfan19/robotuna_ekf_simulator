@@ -27,8 +27,8 @@ To run the attitude controller:\
 `$ rosrun robotuna_ekf_simulator controller_node.py controller_node`\
 Note: running `controller_node.py` requires a node name argument. In this case, `controller_node` is used.
 
-You can then publish desired odometries to `/Kwad/cmd_odom`, and commanded throttles to `/Kwad/cmd_throttle`. \
-Note: It usually takes a throttle value of 50 for the drone to start slowly ascending.
+You can then publish desired Euler anglesto `/Kwad/cmd_euler`, and commanded throttles to `/Kwad/cmd_throttle`. \
+Note: It usually takes a throttle value of 50 for the drone to overcome its own mass, and start slowly ascending.
 
 ## TODO
 **Control Features**
