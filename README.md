@@ -10,10 +10,14 @@ A set of tools for Gazebo simulation and control of a quadcopter. Designed for u
     - Ground truth (Publishes to both odom topic and tf)
 - Full attitude control
 - Quadcopter ground truth pose visualization in RViz
+- A simulation world with various features and Apriltags (current pic needs updating)
+- Euler angle based commands available through RQT
 
 ## Usage
 To start the simulation:\
 `$ roslaunch robotuna_ekf_simulator Kwad_sim.launch`
+
+If this is your first time starting the simulation, (currently) you will need to go to the gazebo "Insert" tab on the left, and add the \<repo>/gazebo/models directory to the Gazebo model path. Otherwise, Gazebo will not know where to look for the Apriltag models, and the Apriltags will not display correctly.
 
 To launch Rviz and propeller velocity control:\
 `$ roslaunch robotuna_ekf_simulator Kwad_control.launch`
@@ -28,13 +32,8 @@ Note: It usually takes a throttle value of 50 for the drone to start slowly asce
 
 ## TODO
 **Control Features**
-- Keyboard interface that inputs Euler angles
 - PID velocity and position controller
 - LQR/MPC trajectory follower? (Very very reach goal? See [this paper](<https://www.kth.se/polopoly_fs/1.588039.1600688317!/Thesis KTH - Francesco Sabatino.pdf>) and [this paper](https://arxiv.org/pdf/2006.05768.pdf) for state space models )
-
-**World**
-- Add Apriltags to world
-- Create elevated platform for drone to start on
 
 **Code**
 - !!!! Organize the python scripts into a package !!!!
